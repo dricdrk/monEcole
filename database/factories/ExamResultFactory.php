@@ -55,3 +55,4 @@ $factory->define(ExamResult::class, function (Faker $faker) {
             'institution_id' =>1, 
     ];
 });
+

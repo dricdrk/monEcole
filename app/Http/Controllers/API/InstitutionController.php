@@ -30,16 +30,20 @@ class InstitutionController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'state' => 'string|max:255',
-            'adress' => 'string|max:255',
-            'mail'  => 'string|max:255',
+            'state' => 'required|string|max:255',
+            'district' => 'required|string|max:255',
+            'adress' => 'required|string|max:255',
+            'mail'  => 'required|string|max:255',
+            'user_id'  => 'bigInteger|max:255',
             'phone_number' => 'required|string|max:255',
         ]);
         $institution = Institution::create([
             'name' => $validatedData['name'],
             'state' => $validatedData['state'],
             'adress' => $validatedData['adress'],
-            'mail'  => $validatedData['mail' ],
+            'district' => $validatedData['district'],
+            'mail'  => $validatedData['mail'],
+            'user_id'  => $validatedData['user_id'],
             'phone_number' => $validatedData['phone_number'],
         ]);
         if(!is_null($institution)) {
@@ -107,3 +111,4 @@ class InstitutionController extends Controller
     }
 }
 
+ 

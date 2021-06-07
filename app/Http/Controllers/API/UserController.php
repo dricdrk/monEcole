@@ -8,6 +8,13 @@ use Carbon\Carbon;
 use App\User;
 class UserController extends Controller
 {
+    public function index()
+    {
+         $user = User::all();
+        return response()->json([
+            "users" => $user
+        ]);
+    }
     /**
      * Create user
      *
@@ -21,12 +28,14 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'profile_image' => 'string',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed'
         ]);
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
+            'profile_image' => $request->profile_image,
             'password' => bcrypt($request->password)
         ]);
         $user->save();
@@ -48,6 +57,7 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $request->validate([
+            
             'email' => 'required|string|email',
             'password' => 'required|string',
             'remember_me' => 'boolean'
@@ -94,4 +104,23 @@ class UserController extends Controller
     {
         return response()->json($request->user());
     }
-}
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        if($user->update($request->all())){
+            $user->save();
+            return response()->json([
+            'success'=> 'your update has done',
+            "Data"=> $user 
+                      ]);
+        }
+    }
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        if($user->delete()){
+            return response()->json([
+            'success'=> 'User has been delete succefully'
+        ], 204);
+        }
+    }}

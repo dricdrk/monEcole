@@ -52,6 +52,6 @@ $factory->define(ExamResult::class, function (Faker $faker) {
             'number_of_people' => $all ,
             'number_of_people_received'  =>rand (0,$all),
             'categories' => $categorie, 
-            'institution_id' => rand(1,5), 
+            'institution_id' => rand(10,15), 
     ];
 });

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Institution extends Model
 {
     protected $fillable = [
-        'name', 'state', 'adress', 'mail','phone_number',
+        'name', 'state', 'adress','user_id', 'mail','phone_number',
     ];
 }

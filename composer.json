@@ -15,6 +15,7 @@
         "laravel/framework": "^7.29",
         "laravel/passport": "~9.0",
         "laravel/tinker": "^2.5",
+        "laravel/ui": "^2.0",
         "paragonie/random_compat": "2.*"
     },
     "require-dev": {

@@ -17,15 +17,17 @@ class CreateInstitutionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('states');
+            $table->string('district');
             $table->string('adress');
             $table->string('mail')->unique()->nullable();
             $table->string('phone_number')->unique();
+            $table->unsignedBigInteger('user_id')->unique;
             $table->timestamps();         
-            // Foreign Key
-            //  $table->foreign('performance_id')
-            //  ->references('id')
-            //  ->on('performances')
-            //  ->onDelete('cascade');
+          // Foreign Key
+             $table->foreign('user_id')
+             ->references('id')
+             ->on('users')
+             ->onDelete('cascade');
         });
     }
 

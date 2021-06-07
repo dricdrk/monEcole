@@ -9,10 +9,10 @@ $factory->define(Institution::class, function (Faker $faker) {
     return [
             'name' => $faker->name,
             'states' => $faker->city,
-            'adress' => $faker->district,
+            'district' => $faker->city,
             'adress' => $faker->address,
             'mail'  => $faker->email,
-            'user_id' =>rand(1,5),
+            'user_id' =>1,
             'phone_number' => $faker->phoneNumber
     ];
 });

@@ -12,7 +12,7 @@ $factory->define(Ads::class, function (Faker $faker) {
         'institution_name'=>$faker->city,
         'service_description' => $faker->paragraph, 
         'pub_url_flyers' => $faker->name, 
-        'user_id' => rand(1,4), 
+        'user_id' => 1, 
         'logo' => rand(1,5), 
     ];
 });
